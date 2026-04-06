@@ -26,7 +26,8 @@
 
 `brain/scripts/discord_inbox_bot/team_channels.example.json` を `team_channels.json` にコピーし、**Discord のテキストチャンネルID**（開発者モードでコピー）と **`label`（表示名）**、**`local_inbox` / `task_file`**（Vault 内の相対パス）を埋めます。  
 このファイルがあると **`.env` の `DISCORD_CHANNEL_ID` は使われず**、列挙したチャンネルごとに受信箱・自動タスク一覧が分かれます。**朝の定時サマリー**は各ルートの `summary_channel_id` へ（省略時はそのメモチャンネルと同じ）投稿されます。  
-`github_file` を省略または `null` にすると、そのチャンネルは **ローカル md 追記のみ**（GitHub は更新しません）。
+`github_file` を省略または `null` にすると、そのチャンネルの **受信箱**は GitHub に送りません。  
+**自動タスク一覧**を GitHub に同期するには **`github_task_file`**（リポジトリ内パス、例: `brain/タスク管理/自動タスク一覧_かおりん.md`）を指定します。タスク追加・完了のたびにそのファイルを API で更新します。
 
 ## Mac でログイン時・蓋を開いたあとも遡って同期する
 

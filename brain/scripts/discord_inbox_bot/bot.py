@@ -60,6 +60,12 @@ TASK_FILE_PATH = Path(os.environ.get("TASK_FILE_PATH", "タスク管理/自動�
 if not TASK_FILE_PATH.is_absolute():
     TASK_FILE_PATH = BRAIN_DIR / TASK_FILE_PATH
 
+# タスク一覧 md を GitHub に同期するパス（単一チャンネルモード用）。空なら無効
+_GH_TASK_RAW = os.environ.get(
+    "GITHUB_TASK_FILE_PATH", "brain/タスク管理/自動タスク一覧.md"
+).strip().strip("/")
+GITHUB_TASK_REPO_PATH_DEFAULT: str | None = _GH_TASK_RAW if _GH_TASK_RAW else None
+
 SUMMARY_POST_HOUR_JST = int(os.environ.get("SUMMARY_POST_HOUR_JST", "8"))
 SUMMARY_POST_MINUTE_JST = int(os.environ.get("SUMMARY_POST_MINUTE_JST", "0"))
 
@@ -111,6 +117,7 @@ class InboxRoute:
     local_path: Path
     task_path: Path
     github_repo_path: str | None
+    github_task_path: str | None
     summary_channel_id: int
 
 
@@ -143,6 +150,11 @@ def load_inbox_routes() -> list[InboxRoute]:
                         gh = None
                     sc = ch.get("summary_channel_id")
                     summary_cid = cid if sc is None else int(sc)
+                    gh_task = ch.get("github_task_file")
+                    if gh_task is not None and str(gh_task).strip():
+                        gh_task = str(gh_task).strip().strip("/")
+                    else:
+                        gh_task = None
                     routes.append(
                         InboxRoute(
                             channel_id=cid,
@@ -150,6 +162,7 @@ def load_inbox_routes() -> list[InboxRoute]:
                             local_path=_brain_rel_path(local_rel),
                             task_path=_brain_rel_path(task_rel),
                             github_repo_path=gh,
+                            github_task_path=gh_task,
                             summary_channel_id=summary_cid,
                         )
                     )
@@ -166,6 +179,7 @@ def load_inbox_routes() -> list[InboxRoute]:
             local_path=LOCAL_FILE_PATH,
             task_path=TASK_FILE_PATH,
             github_repo_path=FILE_PATH,
+            github_task_path=GITHUB_TASK_REPO_PATH_DEFAULT,
             summary_channel_id=sum_cid,
         )
     ]
@@ -563,6 +577,26 @@ async def append_to_local_file(author_name: str, text: str, local_path: Path) ->
             f.write(line + "\n")
 
     await loop.run_in_executor(None, _do)
+
+
+async def push_task_file_to_github(route: InboxRoute) -> bool:
+    """ローカルの task_path の内容を GitHub 上の github_task_path に丸ごと反映する。"""
+    rpath = route.github_task_path
+    if not rpath or not route.task_path.exists():
+        return True
+    loop = asyncio.get_event_loop()
+
+    def _do() -> None:
+        content = route.task_path.read_text(encoding="utf-8")
+        sha, _ = github_get_file(rpath)
+        github_put_file(content, sha, "discord-inbox: sync task list", rpath)
+
+    try:
+        await loop.run_in_executor(None, _do)
+        return True
+    except Exception:
+        log.exception("Failed to push task file to GitHub: %s", rpath)
+        return False
 
 
 def parse_calendar_request(text: str) -> dict[str, str] | None:
@@ -1071,6 +1105,15 @@ async def post_process_inbox_message(
                     )
     except Exception:
         log.exception("Task sync failed")
+
+    if (task_added or task_done) and route.github_task_path:
+        task_gh_ok = await push_task_file_to_github(route)
+        if not task_gh_ok:
+            log.warning(
+                "Task list not synced to GitHub (route=%s file=%s)",
+                route.label,
+                route.github_task_path,
+            )
 
     try:
         if local_ok and github_ok:

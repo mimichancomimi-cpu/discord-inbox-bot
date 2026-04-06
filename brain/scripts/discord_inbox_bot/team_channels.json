@@ -6,6 +6,7 @@
       "local_inbox": "タスク管理/Discord自動受信箱.md",
       "task_file": "タスク管理/自動タスク一覧.md",
       "github_file": "brain/タスク管理/Discord自動受信箱.md",
+      "github_task_file": "brain/タスク管理/自動タスク一覧.md",
       "summary_channel_id": 1488591097939755340
     },
     {
@@ -13,7 +14,8 @@
       "discord_channel_id": 1490593019433586769,
       "local_inbox": "タスク管理/Discord受信箱_かおりん.md",
       "task_file": "タスク管理/自動タスク一覧_かおりん.md",
-      "github_file": null,
+      "github_file": "brain/タスク管理/Discord受信箱_かおりん.md",
+      "github_task_file": "brain/タスク管理/自動タスク一覧_かおりん.md",
       "summary_channel_id": 1490593146164351097
     },
     {
@@ -21,7 +23,8 @@
       "discord_channel_id": 1490592993034637332,
       "local_inbox": "タスク管理/Discord受信箱_あんこ.md",
       "task_file": "タスク管理/自動タスク一覧_あんこ.md",
-      "github_file": null,
+      "github_file": "brain/タスク管理/Discord受信箱_あんこ.md",
+      "github_task_file": "brain/タスク管理/自動タスク一覧_あんこ.md",
       "summary_channel_id": 1490593116355563612
     }
   ]
