@@ -262,6 +262,15 @@ def strip_leading_task_tag(text: str) -> str:
     return re.sub(r"^【[^】]+】\s*", "", text.strip())
 
 
+def strip_all_bracket_tags(text: str) -> str:
+    """タスク行から 【…】 をすべて除去（先頭だけでなく文中・重複も含む）。"""
+    if not text or not str(text).strip():
+        return ""
+    s = re.sub(r"【[^】]+】\s*", "", str(text).strip())
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
+
+
 def normalize_text_for_match(text: str) -> str:
     s = text.strip()
     s = re.sub(r"(は)?(終わりました|完了しました|終わった|完了|できました|できた|done)$", "", s)
@@ -418,12 +427,16 @@ def parse_task_content(text: str) -> str:
     if um:
         summarized = summarize_memo_to_task_line(body_for_summarize)
         if not summarized:
-            return (strip_leading_task_tag(extracted) or um.group(2)).strip()
-        return summarized.strip()
-    summarized = summarize_memo_to_task_line(body_for_summarize)
-    if not summarized:
-        return add_task_prefix_if_missing(extracted)
-    return summarized.strip()
+            out = (strip_leading_task_tag(extracted) or um.group(2)).strip()
+        else:
+            out = summarized.strip()
+    else:
+        summarized = summarize_memo_to_task_line(body_for_summarize)
+        if not summarized:
+            out = add_task_prefix_if_missing(extracted)
+        else:
+            out = summarized.strip()
+    return strip_all_bracket_tags(out)
 
 
 def add_task_prefix_if_missing(text: str) -> str:
