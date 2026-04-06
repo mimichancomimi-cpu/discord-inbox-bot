@@ -6,5 +6,8 @@ credentials.json
 calendar_config.json
 **/calendar_config.json
 
+# Bot 実行時の状態（ローカル差分のみ）
+brain/scripts/discord_obsidian_archiver/state.json
+
 # OS
 .DS_Store
