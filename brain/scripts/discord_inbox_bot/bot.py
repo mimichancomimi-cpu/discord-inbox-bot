@@ -416,42 +416,20 @@ def parse_task_content(text: str) -> str:
 
     um = re.match(r"^(【[^】]+】)\s*(.+)$", t)
     if um:
-        user_tag = um.group(1)
         summarized = summarize_memo_to_task_line(body_for_summarize)
         if not summarized:
-            return user_tag
-        return f"{user_tag} {summarized}".strip()
-    tag = infer_task_tag(t)
+            return (strip_leading_task_tag(extracted) or um.group(2)).strip()
+        return summarized.strip()
     summarized = summarize_memo_to_task_line(body_for_summarize)
     if not summarized:
         return add_task_prefix_if_missing(extracted)
-    return f"{tag} {summarized}".strip()
+    return summarized.strip()
 
 
 def add_task_prefix_if_missing(text: str) -> str:
-    if re.match(r"^【[^】]+】", text):
-        return text
-
-    tag = infer_task_tag(text)
-    if not tag:
-        return text
-    return f"{tag} {text}"
-
-
-def infer_task_tag(text: str) -> str:
-    if re.search(r"(つきのわ|つきのわハウス|ハウス)", text):
-        return "【つ】"
-    if re.search(r"(mimi|メルマガ|line|個別サポート|メソッド|宴メルマガ)", text, re.I):
-        return "【m】"
-    if re.search(r"(ノゾミ|のぞみ)", text):
-        return "【ノ】"
-    if re.search(r"(たかだ)", text):
-        return "【た】"
-    if re.search(r"(シナ|しな)", text):
-        return "【シ】"
-    if re.search(r"(私用|家|買い物|病院|プライベート)", text):
-        return "【プ】"
-    return "【m】"
+    """タスク行に【m】等の用語タグは付けない。ユーザーが付けた先頭【】は除去して1行にする。"""
+    cleaned = strip_leading_task_tag(text).strip()
+    return cleaned if cleaned else text.strip()
 
 
 def ensure_task_file(task_path: Path) -> None:
