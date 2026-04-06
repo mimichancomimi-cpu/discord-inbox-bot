@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 420px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif;
+  background: #f5f6fa;
+  color: #2d3436;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.header {
+  background: linear-gradient(135deg, #6C5CE7, #a55eea);
+  color: #fff;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.header-icon { font-size: 18px; }
+.header h1 { font-size: 14px; font-weight: 700; }
+
+.content { padding: 16px; }
+
+.view { display: block; }
+.hidden { display: none !important; }
+
+/* --- Loading --- */
+.loading-wrap {
+  text-align: center;
+  padding: 32px 0;
+  color: #636e72;
+}
+.spinner {
+  width: 28px; height: 28px;
+  border: 3px solid #dfe6e9;
+  border-top-color: #6C5CE7;
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  margin: 0 auto 12px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* --- Not Supported --- */
+.msg-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px 16px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+.msg-box .icon { font-size: 32px; margin-bottom: 8px; }
+.msg-box p { color: #636e72; font-size: 12px; margin-top: 4px; }
+
+/* --- Episode Card --- */
+.episode-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  margin-bottom: 14px;
+}
+.episode-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.episode-meta {
+  font-size: 11px;
+  color: #636e72;
+  display: flex;
+  gap: 12px;
+}
+
+/* --- Server Warning --- */
+.server-warn {
+  background: #ffeaa7;
+  color: #6d4c00;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.server-warn strong { font-weight: 700; }
+
+/* --- Buttons --- */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .15s ease;
+  font-family: inherit;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #6C5CE7, #a55eea);
+  color: #fff;
+}
+.btn-primary:hover { box-shadow: 0 4px 14px rgba(108,92,231,.35); transform: translateY(-1px); }
+.btn-primary:disabled { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
+
+.btn-row { display: flex; gap: 8px; margin-top: 12px; }
+.btn-sm {
+  flex: 1;
+  padding: 9px 8px;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all .15s ease;
+}
+.btn-copy { background: #dfe6e9; color: #2d3436; }
+.btn-copy:hover { background: #b2bec3; }
+.btn-save { background: #6C5CE7; color: #fff; }
+.btn-save:hover { background: #5a4bd1; }
+
+/* --- Progress --- */
+.progress-wrap {
+  text-align: center;
+  padding: 20px 0;
+}
+.progress-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.progress-dots span {
+  width: 8px; height: 8px;
+  background: #6C5CE7;
+  border-radius: 50%;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+.progress-dots span:nth-child(2) { animation-delay: .2s; }
+.progress-dots span:nth-child(3) { animation-delay: .4s; }
+@keyframes pulse { 0%,100% { opacity:.2; transform:scale(.8); } 50% { opacity:1; transform:scale(1.1); } }
+
+.progress-status { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+.progress-sub { font-size: 11px; color: #636e72; }
+.progress-warn { font-size: 11px; color: #b2bec3; margin-top: 10px; }
+
+/* --- Result --- */
+.result-text {
+  background: #fff;
+  border: 1px solid #dfe6e9;
+  border-radius: 10px;
+  padding: 14px;
+  max-height: 320px;
+  overflow-y: auto;
+  font-size: 13px;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin-bottom: 4px;
+}
+.result-meta {
+  font-size: 11px;
+  color: #b2bec3;
+  text-align: right;
+  margin-bottom: 6px;
+}
+
+/* --- Save UI --- */
+.save-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
+}
+.save-row label { font-size: 11px; color: #636e72; white-space: nowrap; }
+.save-row input {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid #dfe6e9;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: inherit;
+  outline: none;
+}
+.save-row input:focus { border-color: #6C5CE7; }
+
+/* --- Error --- */
+.error-box {
+  background: #fff5f5;
+  border: 1px solid #ffcccc;
+  border-radius: 10px;
+  padding: 14px;
+  color: #d63031;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.error-box strong { display: block; margin-bottom: 4px; font-size: 13px; }
+
+/* --- Toast --- */
+.toast {
+  position: fixed;
+  bottom: 16px; left: 50%; transform: translateX(-50%);
+  background: #2d3436;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+  z-index: 100;
+}
+.toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <span class="header-icon">🎙</span>
+    <h1>stand.fm 文字起こし</h1>
+  </div>
+
+  <div class="content">
+    <!-- Loading -->
+    <div id="view-loading" class="view">
+      <div class="loading-wrap">
+        <div class="spinner"></div>
+        <div>読み込み中...</div>
+      </div>
+    </div>
+
+    <!-- Not a stand.fm page -->
+    <div id="view-not-supported" class="view hidden">
+      <div class="msg-box">
+        <div class="icon">📻</div>
+        <strong>stand.fmのエピソードページで使用してください</strong>
+        <p>stand.fm/episodes/... のページを開いた状態で<br>このポップアップを起動してください。</p>
+      </div>
+    </div>
+
+    <!-- Episode detected -->
+    <div id="view-episode" class="view hidden">
+      <div id="server-warn" class="server-warn hidden">
+        <strong>⚠ サーバー未起動</strong><br>
+        文字起こしサーバーが起動していません。<br>
+        <code>start_server.command</code> をダブルクリックして起動してください。
+      </div>
+      <div class="episode-card">
+        <div id="ep-title" class="episode-title"></div>
+        <div class="episode-meta">
+          <span id="ep-duration"></span>
+          <span id="ep-date"></span>
+        </div>
+      </div>
+      <button id="btn-transcribe" class="btn btn-primary">文字起こしを開始</button>
+    </div>
+
+    <!-- Transcribing -->
+    <div id="view-progress" class="view hidden">
+      <div class="episode-card">
+        <div id="prog-title" class="episode-title"></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-dots"><span></span><span></span><span></span></div>
+        <div id="prog-status" class="progress-status">準備中...</div>
+        <div id="prog-sub" class="progress-sub"></div>
+        <div class="progress-warn">※ ポップアップを閉じないでください</div>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div id="view-result" class="view hidden">
+      <div class="episode-card">
+        <div id="res-title" class="episode-title"></div>
+        <div id="res-meta" class="result-meta"></div>
+      </div>
+      <div id="res-text" class="result-text"></div>
+      <div class="btn-row">
+        <button id="btn-copy" class="btn-sm btn-copy">📋 コピー</button>
+        <button id="btn-save" class="btn-sm btn-save">💾 Obsidianに保存</button>
+      </div>
+      <div class="save-row">
+        <label>保存先:</label>
+        <input id="save-folder" type="text" placeholder="brain/mimiちゃん">
+      </div>
+    </div>
+
+    <!-- Error -->
+    <div id="view-error" class="view hidden">
+      <div id="error-content" class="error-box"></div>
+      <div class="btn-row" style="margin-top:12px">
+        <button id="btn-retry" class="btn-sm btn-copy" style="flex:none;padding:9px 20px;">🔄 もう一度試す</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

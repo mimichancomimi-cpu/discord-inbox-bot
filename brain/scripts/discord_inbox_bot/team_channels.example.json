@@ -1,0 +1,20 @@
+{
+  "channels": [
+    {
+      "label": "かおりん",
+      "discord_channel_id": 111111111111111111,
+      "local_inbox": "タスク管理/Discord受信箱_かおりん.md",
+      "task_file": "タスク管理/自動タスク一覧_かおりん.md",
+      "github_file": "brain/タスク管理/Discord受信箱_かおりん.md",
+      "summary_channel_id": null
+    },
+    {
+      "label": "あんこ",
+      "discord_channel_id": 222222222222222222,
+      "local_inbox": "タスク管理/Discord受信箱_あんこ.md",
+      "task_file": "タスク管理/自動タスク一覧_あんこ.md",
+      "github_file": null,
+      "summary_channel_id": null
+    }
+  ]
+}

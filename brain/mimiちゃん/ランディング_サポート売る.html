@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>サポート売る｜mimiちゃん</title>
+  <meta name="description" content="mimiちゃんのサポート内容と、ご参加のみなさんの声をまとめたページです。購入前の不安を減らす材料として、必要な方だけゆっくり見てくださいね。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fffbf7;
+      --surface: #ffffff;
+      --ink: #2c2420;
+      --muted: #6b5e56;
+      --accent: #e86b3a;
+      --accent-soft: #fff0e8;
+      --line: #ead9cf;
+      --radius: 16px;
+      --shadow: 0 12px 40px rgba(44, 36, 32, 0.08);
+      --max: 720px;
+      --wide: 1040px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    a:hover { opacity: 0.85; }
+    .wrap { max-width: var(--wide); margin: 0 auto; padding: 0 20px 80px; }
+    header.hero {
+      padding: 48px 0 40px;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fff5ed 0%, var(--bg) 100%);
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(1.65rem, 4vw, 2.25rem);
+      font-weight: 700;
+      margin: 0 0 16px;
+      line-height: 1.35;
+    }
+    .lead {
+      max-width: var(--max);
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    section { margin-top: 56px; }
+    h2 {
+      font-size: 1.35rem;
+      margin: 0 0 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2::before {
+      content: "";
+      width: 6px;
+      height: 1.1em;
+      background: var(--accent);
+      border-radius: 3px;
+    }
+    .sec-desc { color: var(--muted); margin: 0 0 28px; font-size: 0.95rem; }
+    .cards {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      box-shadow: var(--shadow);
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+    }
+    .card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+    .card ul { margin: 10px 0 0; padding-left: 1.2em; color: var(--muted); font-size: 0.92rem; }
+    .note-box {
+      background: var(--accent-soft);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      font-size: 0.9rem;
+      color: var(--ink);
+      margin-top: 20px;
+      border: 1px dashed rgba(232, 107, 58, 0.35);
+    }
+    .voices {
+      display: grid;
+      gap: 20px;
+    }
+    @media (min-width: 768px) {
+      .voices { grid-template-columns: 1fr 1fr; }
+    }
+    .voice {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 22px;
+      border: 1px solid var(--line);
+      position: relative;
+    }
+    .voice.placeholder {
+      border-style: dashed;
+      background: #faf8f6;
+    }
+    .voice .meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .voice blockquote {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      background: #eee8e4;
+      color: var(--muted);
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-top: 12px;
+    }
+    .facts {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .facts li {
+      padding: 14px 0 14px 28px;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+    .facts li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .cta {
+      text-align: center;
+      margin-top: 64px;
+      padding: 40px 24px;
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .cta p { margin: 0 0 20px; color: var(--muted); }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff !important;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 999px;
+      font-size: 1rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(232, 107, 58, 0.35);
+      opacity: 1;
+    }
+    footer {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .editor-hint {
+      max-width: var(--max);
+      margin: 32px auto 0;
+      padding: 16px 20px;
+      background: #f0ebe7;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      color: #5c524c;
+    }
+    .editor-hint strong { color: var(--ink); }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <span class="badge">mimiちゃん｜口コミ × サポートで選んでもらう</span>
+      <h1>サポート売る</h1>
+      <p class="lead">
+        わたしがどんなサポートをしているか、参加してくれた方の声や成果のイメージを、ひとつの場所にまとめました。
+        キラキラした宣伝じゃなくて、<strong style="color: var(--ink); font-weight: 600;">買ったあとがイメージできる材料</strong>として、申し込みのひと押しになればうれしいです。
+      </p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="support">
+      <h2>サポートの内容</h2>
+      <p class="sec-desc">商品や企画ごとに細部は変わりますが、基本は「教材だけ置いて終わり」にしないスタンスです。</p>
+      <div class="cards">
+        <div class="card">
+          <h3>学習の伴走（例：動画講座まわり）</h3>
+          <p>ロードマップに沿って迷子になりにくいよう、構成と進め方を意識したコンテンツ設計。</p>
+          <ul>
+            <li>章ごとに「何をすればいいか」が追える構成</li>
+            <li>追記・アップデートで手の届く範囲を広げていく方針</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>みみナビ（専用AIアシスタント）</h3>
+          <p>教材とセットで使う想定の、学習を補助するモード付きのAI。設定の引き継ぎや、公式の使い方への誘導も想定しています。</p>
+        </div>
+        <div class="card">
+          <h3>直通LINEサポート（期間あり）</h3>
+          <p>テキストで壁打ちできる期間を設けています。遠慮しすぎず、具体的に聞いてもらえるとお互いラクです。</p>
+        </div>
+        <div class="card">
+          <h3>コミュニティ（つきのわハウス）</h3>
+          <p>別枠の学びの場。勉強会・質疑・ノウハウの蓄積など、継続で伸ばしたい方向け。</p>
+        </div>
+      </div>
+      <div class="note-box">
+        ※ サポートの有無・期間・内容は、購入・参加する商品・プランの案内ページを正としてください。このページは販売導線用の概要LP（口コミ・サポート訴求）です。
+      </div>
+    </section>
+
+    <section id="results">
+      <h2>サポートを通じた成果のイメージ</h2>
+      <p class="sec-desc">個人の再現性の話として、これまで共有してきた範囲の例です（すべての方に同じ結果が保証されるものではありません）。</p>
+      <ul class="facts">
+        <li>SNSに不慣れでバズ経験がなかった方が、アドバイスを踏まえてバズを連発した例</li>
+        <li>Zoomで面談し強みを整理した方が、アカウント開設初月でフォロワー1万人規模に至った例</li>
+        <li>開始から10日程度でフォロワー1500人規模、初月から12万円程度の売上に至った例</li>
+        <li>フォロワー500人未満・低単価のnoteのみで50万円規模の売上を出した例</li>
+        <li>フォロワー1000人未満・同様の条件で100万円規模を達成した例</li>
+      </ul>
+    </section>
+
+    <section id="voices">
+      <h2>みなさんの声（口コミ）</h2>
+      <p class="sec-desc">ここに、実際のスクショ・長文の感想・インタビュー抜粋を貼っていく想定です。下のカードは差し替え用のプレースホルダです。</p>
+      <div class="voices">
+        <article class="voice placeholder">
+          <div class="meta">【差し替え】属性（例：30代・0歳児ママ）</div>
+          <blockquote>
+            「（ここに実際のコメントをそのまま or 要約で掲載。許諾範囲に合わせて匿名・イニシャルにしてください）」
+          </blockquote>
+          <span class="tag">プレースホルダ 1</span>
+        </article>
+        <article class="voice placeholder">
+          <div class="meta">【差し替え】属性</div>
+          <blockquote>
+            「（Threads / note / DM / アンケートなど、出所をコメント内または管理メモに記録しておくと後から楽です）」
+          </blockquote>
+          <span class="tag">プレースホルダ 2</span>
+        </article>
+        <article class="voice placeholder">
+          <div class="meta">【差し替え】属性</div>
+          <blockquote>
+            「（画像付き口コミは、このブロックを div にして背景画像にする、または img タグを追加してください）」
+          </blockquote>
+          <span class="tag">プレースホルダ 3</span>
+        </article>
+        <article class="voice placeholder">
+          <div class="meta">【差し替え】属性</div>
+          <blockquote>
+            「（つきのわハウスだよりのインタビュー記事へのリンクを貼る形でもOK）」
+          </blockquote>
+          <span class="tag">プレースホルダ 4</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>よくある質問</h2>
+      <p class="sec-desc">必要に応じて追記してください。</p>
+      <div class="cards">
+        <div class="card">
+          <h3>サポートはいつまで？</h3>
+          <p>商品・キャンペーンごとに異なります。申込ページや購入後メールの記載を確認してください。</p>
+        </div>
+        <div class="card">
+          <h3>質問はどんな内容でもいい？</h3>
+          <p>教材の進め方、アカウントの方向性、モヤモヤの壁打ちなど、具体的に書いてもらえると返しやすいです。</p>
+        </div>
+        <div class="card">
+          <h3>コミュニティと講座の違いは？</h3>
+          <p>講座は体系化された学習、コミュニティは継続の場・仲間との情報交換が中心、というイメージです。</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta" id="cta">
+      <p>まずは発信やnoteの雰囲気を見てからでも大丈夫です。</p>
+      <a class="btn" href="https://note.com/mimi0823_" target="_blank" rel="noopener noreferrer">note を見る</a>
+      <p style="margin-top: 20px; font-size: 0.9rem;">
+        Threads：<a href="https://www.threads.net/@mimichan_0" target="_blank" rel="noopener noreferrer">@mimichan_0</a>
+      </p>
+    </div>
+
+    <div class="editor-hint">
+      <strong>編集メモ（公開前に削除OK）</strong><br />
+      · 口コミは<strong>掲載許可</strong>の取れた文のみに差し替えてください。<br />
+      · 数値実績は<strong>根拠のある範囲</strong>で更新。古い数字が残らないよう定期チェックを。<br />
+      · ファイルはブラウザで開くだけで表示されます。独自ドメインに載せる場合はこのHTMLをアップロードしてください。
+    </div>
+
+    <footer>
+      © mimiちゃん — サポート売る（社内・販促用LP）
+    </footer>
+  </main>
+</body>
+</html>

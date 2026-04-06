@@ -1,0 +1,10 @@
+# 機密（リポジトリに含めない）
+.env
+**/.env
+credentials.json
+**/credentials.json
+calendar_config.json
+**/calendar_config.json
+
+# OS
+.DS_Store

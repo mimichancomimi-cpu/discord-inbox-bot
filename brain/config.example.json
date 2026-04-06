@@ -1,0 +1,68 @@
+{
+  "spreadsheet_id": "1uj5a4GVcxMTzW8aoCIQL8Oj9Y8qvY3Wsn3bYGfEPymw",
+  "worksheet_name": "自動投稿",
+  "credentials_path": "path/to/your/credentials.json",
+  "openai_api_key": "YOUR_OPENAI_API_KEY_HERE",
+  "account_mappings": {
+    "ぽんこつ母ちゃん": {
+      "spreadsheet_id": "1uj5a4GVcxMTzW8aoCIQL8Oj9Y8qvY3Wsn3bYGfEPymw",
+      "worksheet_name": "自動投稿"
+    },
+    "おつかれママ": {
+      "spreadsheet_id": "16Z0Qyi0pZGjb9JM_VcBvX_-7wiCSJJUaleOr9a4kuTk",
+      "worksheet_name": "自動投稿"
+    },
+    "100日後に離婚するおでんママ": {
+      "spreadsheet_id": "1Eya_xEUUvufypuQktJXxre4FONmRB-ar2y58Kk9fHMo",
+      "worksheet_name": "自動投稿"
+    },
+    "おでんママ": {
+      "spreadsheet_id": "1Eya_xEUUvufypuQktJXxre4FONmRB-ar2y58Kk9fHMo",
+      "worksheet_name": "自動投稿"
+    },
+    "はなママ": {
+      "spreadsheet_id": "173WQXSf2K1ktGdR0CQ3uq5dQLCR6HVaVEtyXQNw5txk",
+      "worksheet_name": "自動投稿"
+    },
+    "みゃこ🐱": {
+      "spreadsheet_id": "1Z__kqC-2BYYNsSeRRFAIyf60jEv6ioZNe9WjlJoZhgE",
+      "worksheet_name": "自動投稿"
+    },
+    "すいせいちゃん": {
+      "spreadsheet_id": "1Hlu575ZaxNvDi-2l6g3fEhNBHoAyOPvq6eKPwAyeyFk",
+      "worksheet_name": "自動投稿"
+    },
+    "ねこリーマン": {
+      "spreadsheet_id": "1dDFy-oXQUg3pYmeQKDOE1wvt_aJoxd4b4kzhRjr2gSU",
+      "worksheet_name": "自動投稿"
+    },
+    "最強らぶちゃん❤️‍🔥": {
+      "spreadsheet_id": "1w6W1Ad580LJQT6BCTnFHXSNihkBC2IcvZC-x8pvQ8Ho",
+      "worksheet_name": "自動投稿"
+    },
+    "無敵メンタルめるちゃん": {
+      "spreadsheet_id": "1SkfhJFM0YlknNMcC7v81AF2zfy9iNSU238NI1JHlE-0",
+      "worksheet_name": "自動投稿"
+    },
+    "ゆるスピのアオ子": {
+      "spreadsheet_id": "1TnWD-b8FUquhuKPeeiYdWtlvE6HoToJcKZqBuzr2psw",
+      "worksheet_name": "自動投稿"
+    },
+    "天音🪽元恋愛依存が語る幸せの恋愛術": {
+      "spreadsheet_id": "1AOFaeIeC2N0B8VRF0OCiQlYef7sx2-aZ9VU_Rwjtbf4",
+      "worksheet_name": "自動投稿"
+    },
+    "天音": {
+      "spreadsheet_id": "1AOFaeIeC2N0B8VRF0OCiQlYef7sx2-aZ9VU_Rwjtbf4",
+      "worksheet_name": "自動投稿"
+    },
+    "りぼんちゃん🎀": {
+      "spreadsheet_id": "1kUL_Gz0Fb36ftLr2GDA8BlFLoi2Y6SN9RsG2O98rrHw",
+      "worksheet_name": "自動投稿"
+    },
+    "りぼんちゃん": {
+      "spreadsheet_id": "1kUL_Gz0Fb36ftLr2GDA8BlFLoi2Y6SN9RsG2O98rrHw",
+      "worksheet_name": "自動投稿"
+    }
+  }
+}

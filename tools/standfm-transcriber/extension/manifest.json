@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "stand.fm 文字起こし",
+  "version": "1.0.0",
+  "description": "stand.fmの音声エピソードをワンクリックで文字起こし",
+  "permissions": ["activeTab"],
+  "host_permissions": [
+    "https://stand.fm/*",
+    "http://localhost:5555/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "stand.fm 文字起こし"
+  }
+}

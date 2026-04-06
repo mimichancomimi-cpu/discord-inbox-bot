@@ -1,0 +1,251 @@
+{
+  "main": {
+    "id": "54b7d9aee04d3e70",
+    "type": "split",
+    "children": [
+      {
+        "id": "02d7baaa2b0d2de1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d0a005dd708388fd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "シナちゃん/投稿/投稿一覧_2025年6月.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "投稿一覧_2025年6月"
+            }
+          },
+          {
+            "id": "0612365193709779",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "mimiちゃん/# mimiちゃん_ナレッジ.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "# mimiちゃん_ナレッジ"
+            }
+          },
+          {
+            "id": "5d38e237b9e9b1c5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "# アカウントナレッジ統合プロンプト.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "# アカウントナレッジ統合プロンプト"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "11983a03c1ffaa11",
+    "type": "split",
+    "children": [
+      {
+        "id": "08fac74ffa8e9cb3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6cda5405409d7253",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "ファイルエクスプローラ"
+            }
+          },
+          {
+            "id": "28c67d0b29e310cc",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "検索"
+            }
+          },
+          {
+            "id": "d7931601c9886ba0",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "ブックマーク"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "b27ecf133bbceffe",
+    "type": "split",
+    "children": [
+      {
+        "id": "21fb55092dccf2b3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "40bb07452c926e99",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "バックリンク"
+            }
+          },
+          {
+            "id": "5b4b125e653740dc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "アウトゴーイングリンク"
+            }
+          },
+          {
+            "id": "14884fd8776fbf07",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "タグ"
+            }
+          },
+          {
+            "id": "86dcf82566cea73b",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "すべてのプロパティ"
+            }
+          },
+          {
+            "id": "11224a55be567d45",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "アウトライン"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:クイックスイッチャーを開く": false,
+      "graph:グラフビューを開く": false,
+      "canvas:新規キャンバスを作成": false,
+      "daily-notes:今日のデイリーノートを開く": false,
+      "templates:テンプレートを挿入": false,
+      "command-palette:コマンドパレットを開く": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "5d38e237b9e9b1c5",
+  "lastOpenFiles": [
+    "mimiちゃん/# mimiちゃん_ナレッジ.md",
+    "# アカウントナレッジ統合プロンプト.md",
+    "mimiちゃん/mimiちゃんナレッジ.md",
+    "シナちゃん/コンテンツ/【有料note完全ガイドブック】購入特典.md",
+    "シナちゃん/投稿/投稿一覧_2025年6月.md",
+    "シナちゃん/投稿/投稿一覧.md",
+    "シナちゃん/投稿/投稿一覧_2025年7月.md",
+    "シナちゃん/投稿",
+    "シナちゃん/コンテンツ/【初心者向け】主婦×副業noterのための有料note完全ガイドブック｜シナちゃん.md",
+    "シナちゃん/コンテンツ",
+    "コンテンツ/ABYSS(アビス) -99％が知らない、キャラクタービジネスの教科書-｜でぷれ.md",
+    "Clippings",
+    "シナちゃん/投稿/投稿一覧_2025年12月.md",
+    "シナちゃん/投稿/投稿一覧_2025年11月.md",
+    "シナちゃん/投稿/投稿一覧_2026年1月.md",
+    "シナちゃん/投稿/投稿一覧_2025年10月.md",
+    "シナちゃん/投稿/投稿一覧_2025年9月.md",
+    "シナちゃん/投稿/投稿一覧_2025年8月.md",
+    "シナちゃん/README.md",
+    "シナちゃん",
+    "投稿スケジュール/重複チェック.py",
+    "投稿スケジュール/ナレッジベース.md",
+    "投稿スケジュール/パフォーマンス分析.py",
+    "コンテンツ",
+    "load_ponkotsu_posts.py",
+    "load_hana_posts.py",
+    "load_multiple_posts.py",
+    "簡単セットアップ.md",
+    "５０アカウント運用/5.はなママ_投稿案.md",
+    "Threads投稿作成のポイント（バズ神話まとめ）.md",
+    "５０アカウント運用/4.100日後に離婚するおでんママ.md",
+    "mimiちゃんナレッジ.md",
+    "スプレッドシート連携手順.md",
+    "SETUP_GUIDE.md",
+    "５０アカウント運用/13.りぼんちゃん🎀.md",
+    "５０アカウント運用/12.天音🪽元恋愛依存が語る幸せの恋愛術.md"
+  ]
+}

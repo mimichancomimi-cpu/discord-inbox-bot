@@ -1,0 +1,304 @@
+{
+  "main": {
+    "id": "aa19209f024d0c33",
+    "type": "split",
+    "children": [
+      {
+        "id": "7f7906c3244267d8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "009796897a3605e7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "つきのわハウス/つきのわハウス_メンバーの声_原文アーカイブ.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "つきのわハウス_メンバーの声_原文アーカイブ"
+            }
+          },
+          {
+            "id": "c427a190dd880342",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Clippings/え、これ最初に知ってた人ズルくない…？伸びる人が“投稿前”にやってる仕込みの話｜mimiちゃん｜note.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "え、これ最初に知ってた人ズルくない…？伸びる人が“投稿前”にやってる仕込みの話｜mimiちゃん｜note"
+            }
+          },
+          {
+            "id": "0e6bd00dba116ada",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "無題のファイル.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "無題のファイル"
+            }
+          },
+          {
+            "id": "2754af6c773e1029",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Clippings/【プレビュー】【🐇】AIの投稿を丸コピペで成果が出てる人、ほぼいません｜つきのわハウス｜つきのわハウス｜note.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "【プレビュー】【🐇】AIの投稿を丸コピペで成果が出てる人、ほぼいません｜つきのわハウス｜つきのわハウス｜note"
+            }
+          },
+          {
+            "id": "06cf3f6384a2a7f4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "つきのわハウス/つきのわハウス勉強会 - 会議メモ.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "つきのわハウス勉強会 - 会議メモ"
+            }
+          },
+          {
+            "id": "c1b11b5c97876d55",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "4月3日つきのわハウス勉強会文字起こし.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "4月3日つきのわハウス勉強会文字起こし"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "cb7cc32848a8d657",
+    "type": "split",
+    "children": [
+      {
+        "id": "6a4ebec2220e0408",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "22abef99617041ae",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "ファイルエクスプローラ"
+            }
+          },
+          {
+            "id": "5806ad9f5e0f5c0f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "検索"
+            }
+          },
+          {
+            "id": "65d92691e4ad0073",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "ブックマーク"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "0a7a68b95854d6cc",
+    "type": "split",
+    "children": [
+      {
+        "id": "8acb9ed5326869a6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "87e933f12044aa33",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "バックリンク"
+            }
+          },
+          {
+            "id": "0204477a7b0ee719",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "アウトゴーイングリンク"
+            }
+          },
+          {
+            "id": "34fbb41eba3375f1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "タグ"
+            }
+          },
+          {
+            "id": "42053fa205a117f0",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "すべてのプロパティ"
+            }
+          },
+          {
+            "id": "cae273a80c78065d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "アウトライン"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:新規ベースを作成": false,
+      "switcher:クイックスイッチャーを開く": false,
+      "graph:グラフビューを開く": false,
+      "canvas:新規キャンバスを作成": false,
+      "daily-notes:今日のデイリーノートを開く": false,
+      "templates:テンプレートを挿入": false,
+      "command-palette:コマンドパレットを開く": false,
+      "nexus-ai-chat-importer:Nexus AI Chat Importer - Import new file": false
+    }
+  },
+  "active": "c1b11b5c97876d55",
+  "lastOpenFiles": [
+    "LINE - mimiちゃん - 3 April 2026.srt",
+    "アイデアそん2日目 (transcribed on 04-Apr-2026 20-21-10).txt",
+    "エルドラド2日目 ３ｈ (transcribed on 04-Apr-2026 20-20-18).txt",
+    "つきのわハウス/つきのわハウス勉強会 - 会議メモ.md",
+    "4月3日つきのわハウス勉強会文字起こし.md",
+    "Clippings/【プレビュー】【🐇】AIの投稿を丸コピペで成果が出てる人、ほぼいません｜つきのわハウス｜つきのわハウス｜note.md",
+    "つきのわハウス/つきのわハウス配布note_執筆方針_ナレッジ.md",
+    "つきのわハウス/Discordログ/threads/AIの投稿を丸コピペで成果が出てる人、ほぼいません-1489271600862724197.md",
+    "Clippings/つきのわハウス配布note/【プレビュー】【🐇】「稼ぐ系」と「非稼ぐ系」どっちで始めるべき？掛け算で収益を最大化する方法｜つきのわハウス｜note.md",
+    "つきのわハウス/【🐇】AIと投稿の話_チャット整理版_note原稿.md",
+    "つきのわハウス/mimiちゃん_つきのわハウス配布note_文体ナレッジ.md",
+    "Clippings/つきのわハウス配布note",
+    "Clippings/つきのわハウス配布note/【プレビュー】【🐇】お金を稼ぐって悪いことじゃない。｜つきのわハウス｜note.md",
+    "Clippings/つきのわハウス配布note/【プレビュー】【つきのわハウス】フォロー神話販売時の戦略について｜mimiちゃん｜note.md",
+    "Clippings/つきのわハウス配布note/【プレビュー】【みみ】Threadsは、なぜ稼ぎやすいと言われているのか？｜つきのわハウス｜note.md",
+    "Clippings/つきのわハウス配布note/【プレビュー】バズってるのにnoteが売れない人へ。プロフィールは“自分の名刺”ってどういうことか。｜mimiちゃん｜note.md",
+    "Clippings/つきのわハウス配布note/【プレビュー】ロールモデル分析で「唯一無二の恋愛アカウント」をつくる方法｜mimiちゃん｜note.md",
+    "つきのわハウス/Discord配布note一覧_ナレッジ.md",
+    "[LINE] みみちゃんチームのトーク.txt",
+    "Clippings/え、これ最初に知ってた人ズルくない…？伸びる人が“投稿前”にやってる仕込みの話｜mimiちゃん｜note.md",
+    "無題のファイル.md",
+    "mimiちゃん/制作物_メルマガ.md",
+    "calendar_config.json",
+    "カレンダー予定追加_AI用.md",
+    "calendar_config.example.json",
+    "scripts/add_calendar_event.py",
+    "mimiちゃん/スタエフ/マインドプログラム2週間_全14回台本.md",
+    "mimiメソッドLPソースコード.md",
+    "mimiちゃん/個別サポートLP_UTAGEパーツ/00_README_UTAGE組み立て.md",
+    "mimiちゃん/個別サポートLP_UTAGEパーツ/07_CTA＋フッター.html",
+    "mimiちゃん/個別サポートLP_UTAGEパーツ/02_こんな方へ＋導線.html",
+    "mimiちゃん/個別サポートLP_UTAGEパーツ/01_ヒーロー.html",
+    "つきのわハウス/つきのわハウス_メンバーの声_原文アーカイブ.md",
+    "つきのわハウス/つきのわハウス_note文体ガイド_リライト学習.md",
+    "つきのわハウス/note下書き_具体だけ追いかけるループを抜ける話.md",
+    "つきのわハウス/note下書き_フェーズで変えるいまの一手.md",
+    "つきのわハウス/バズ投稿/image.jpg",
+    "つきのわハウス/バズ投稿/image (8).jpg",
+    "つきのわハウス/バズ投稿/image (9).jpg",
+    "つきのわハウス/バズ投稿/image (7).jpg",
+    "つきのわハウス/バズ投稿/image (6).jpg",
+    "つきのわハウス/バズ投稿/image (5).jpg",
+    "つきのわハウス/バズ投稿/image (4).jpg",
+    "つきのわハウス/バズ投稿/image (31).jpg",
+    "つきのわハウス/バズ投稿/image (29).jpg",
+    "つきのわハウス/バズ投稿/image (30).jpg"
+  ]
+}
