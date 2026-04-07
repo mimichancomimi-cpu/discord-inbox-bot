@@ -10,6 +10,9 @@
 接続確認（共有済みカレンダーが一覧に出るか）:
   python scripts/add_calendar_event.py --list-calendars
 
+1日分の予定をJSONで取得（Discord Bot の朝サマリー用）:
+  python scripts/add_calendar_event.py --list-day 2026-04-07
+
 例（brain フォルダで実行）:
   python scripts/add_calendar_event.py \\
     --calendar-id "あなた@gmail.com" \\
@@ -24,8 +27,10 @@ from __future__ import annotations
 
 import argparse
 import json
+from datetime import date, datetime, time, timedelta
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo
 
 from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
@@ -54,6 +59,59 @@ def build_service(credentials_path: Path):
         str(credentials_path), scopes=SCOPES
     )
     return build("calendar", "v3", credentials=creds)
+
+
+def _parse_google_datetime(s: str) -> datetime:
+    if s.endswith("Z"):
+        s = s[:-1] + "+00:00"
+    return datetime.fromisoformat(s)
+
+
+def cmd_list_day(
+    credentials_path: Path,
+    calendar_id: str,
+    day_str: str,
+    tz_name: str,
+) -> None:
+    """指定日（そのタイムゾーンの0:00〜翌0:00）の予定を JSON で標準出力する。"""
+    if not credentials_path.is_file():
+        raise SystemExit(f"認証ファイルが見つかりません: {credentials_path}")
+    service = build_service(credentials_path)
+    tz = ZoneInfo(tz_name)
+    d = date.fromisoformat(day_str)
+    time_min = datetime.combine(d, time.min, tzinfo=tz)
+    time_max = datetime.combine(d + timedelta(days=1), time.min, tzinfo=tz)
+    events_result = (
+        service.events()
+        .list(
+            calendarId=calendar_id,
+            timeMin=time_min.isoformat(),
+            timeMax=time_max.isoformat(),
+            singleEvents=True,
+            orderBy="startTime",
+        )
+        .execute()
+    )
+    items = events_result.get("items", [])
+    lines: list[str] = []
+    for ev in items:
+        summ = ev.get("summary") or "(無題)"
+        st = ev.get("start", {})
+        en = ev.get("end", {})
+        if "date" in st:
+            lines.append(f"終日  {summ}")
+        elif "dateTime" in st:
+            st_dt = _parse_google_datetime(st["dateTime"])
+            en_dt = _parse_google_datetime(en["dateTime"])
+            st_local = st_dt.astimezone(tz)
+            en_local = en_dt.astimezone(tz)
+            t1 = st_local.strftime("%H:%M")
+            t2 = en_local.strftime("%H:%M")
+            lines.append(f"{t1}–{t2}  {summ}")
+        else:
+            lines.append(summ)
+    payload = {"ok": True, "date": day_str, "lines": lines}
+    print(json.dumps(payload, ensure_ascii=False))
 
 
 def cmd_list_calendars(credentials_path: Path) -> None:
@@ -120,6 +178,12 @@ def main() -> None:
         default="Asia/Tokyo",
         help="タイムゾーン（デフォルト: Asia/Tokyo）",
     )
+    parser.add_argument(
+        "--list-day",
+        metavar="YYYY-MM-DD",
+        default=None,
+        help="その日の予定を JSON で標準出力（朝サマリー連携用）。--calendar-id または calendar_config.json が必要",
+    )
     args = parser.parse_args()
 
     if args.list_calendars:
@@ -128,6 +192,14 @@ def main() -> None:
 
     if not args.credentials.is_file():
         raise SystemExit(f"認証ファイルが見つかりません: {args.credentials}")
+
+    if args.list_day:
+        if not args.calendar_id:
+            raise SystemExit(
+                "--list-day には --calendar-id または calendar_config.json の calendar_id が必要です。"
+            )
+        cmd_list_day(args.credentials, args.calendar_id, args.list_day, args.timezone)
+        return
 
     if not args.calendar_id:
         raise SystemExit(

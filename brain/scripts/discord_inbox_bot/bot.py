@@ -41,6 +41,7 @@ STATE_FILE = Path(os.environ.get("STATE_FILE", ".state.json"))
 if not STATE_FILE.is_absolute():
     STATE_FILE = Path(__file__).resolve().parent / STATE_FILE
 ENABLE_CALENDAR_AUTO_ADD = os.environ.get("ENABLE_CALENDAR_AUTO_ADD", "1").strip() == "1"
+ENABLE_CALENDAR_IN_SUMMARY = os.environ.get("ENABLE_CALENDAR_IN_SUMMARY", "1").strip() == "1"
 CALENDAR_COMMAND_PREFIX = os.environ.get("CALENDAR_COMMAND_PREFIX", "予定:").strip()
 CALENDAR_TIMEZONE = os.environ.get("CALENDAR_TIMEZONE", "Asia/Tokyo").strip() or "Asia/Tokyo"
 CALENDAR_DEFAULT_DURATION_MIN = int(os.environ.get("CALENDAR_DEFAULT_DURATION_MIN", "60"))
@@ -788,6 +789,75 @@ async def maybe_add_calendar_event(text: str) -> bool:
     return True
 
 
+# 朝サマリーが複数ルート（mimi / かおりん / あんこ等）で同時に走るとき、同一日は1回だけ API を叩く
+_morning_calendar_cache: tuple[str, str] | None = None
+
+
+async def fetch_today_calendar_section() -> str | None:
+    """
+    今日（JST）の Google カレンダー予定を 1 ブロックの Markdown にする。
+    取得失敗時は None（タスク要約だけ送る）。
+    """
+    if not ENABLE_CALENDAR_IN_SUMMARY:
+        return None
+    if not ADD_CALENDAR_SCRIPT.exists():
+        log.warning("Calendar script missing for summary: %s", ADD_CALENDAR_SCRIPT)
+        return None
+    global _morning_calendar_cache
+    jst = timezone(timedelta(hours=9))
+    day_str = datetime.now(jst).strftime("%Y-%m-%d")
+    if _morning_calendar_cache and _morning_calendar_cache[0] == day_str:
+        return _morning_calendar_cache[1]
+    cmd = [
+        sys.executable,
+        str(ADD_CALENDAR_SCRIPT),
+        "--list-day",
+        day_str,
+        "--timezone",
+        CALENDAR_TIMEZONE,
+    ]
+    loop = asyncio.get_event_loop()
+
+    def _run() -> subprocess.CompletedProcess[str]:
+        return subprocess.run(
+            cmd,
+            text=True,
+            capture_output=True,
+            cwd=str(BRAIN_DIR),
+            check=False,
+        )
+
+    result = await loop.run_in_executor(None, _run)
+    if result.returncode != 0:
+        err = (result.stderr or "").strip()
+        out = (result.stdout or "").strip()
+        log.warning(
+            "Calendar list-day failed rc=%s stderr=%s stdout=%s",
+            result.returncode,
+            err or "(empty)",
+            out or "(empty)",
+        )
+        return None
+    try:
+        data = json.loads(result.stdout.strip() or "{}")
+    except json.JSONDecodeError:
+        log.warning("Calendar list-day invalid JSON: %s", (result.stdout or "")[:200])
+        return None
+    if not isinstance(data, dict) or not data.get("ok"):
+        return None
+    lines = data.get("lines")
+    if not isinstance(lines, list):
+        return None
+    lines = [str(x) for x in lines if str(x).strip()]
+    if not lines:
+        block = "**今日のカレンダー**\n- 予定なし"
+    else:
+        block = "**今日のカレンダー**\n" + "\n".join(f"- {ln}" for ln in lines)
+    log.info("Calendar summary: date=%s events=%d", day_str, len(lines))
+    _morning_calendar_cache = (day_str, block)
+    return block
+
+
 def load_state() -> dict:
     if not STATE_FILE.exists():
         return {}
@@ -1058,6 +1128,9 @@ async def send_summary_once(
         )
 
     text = build_daily_summary_text(r)
+    cal_block = await fetch_today_calendar_section()
+    if cal_block:
+        text = text + "\n\n" + cal_block
     if test_mode:
         text = "【随時タスクサマリー】\n\n" + text
 
@@ -1259,6 +1332,10 @@ async def on_ready() -> None:
         ENABLE_CALENDAR_AUTO_ADD,
         ADD_CALENDAR_SCRIPT.is_file(),
         ADD_CALENDAR_SCRIPT,
+    )
+    log.info(
+        "Calendar in morning summary: enabled=%s (needs credentials + calendar_id on VPS)",
+        ENABLE_CALENDAR_IN_SUMMARY,
     )
     for route in INBOX_ROUTES:
         channel = await fetch_channel_by_id(route.channel_id)
