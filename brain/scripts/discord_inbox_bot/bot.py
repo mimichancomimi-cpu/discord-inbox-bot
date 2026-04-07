@@ -272,9 +272,22 @@ def strip_all_bracket_tags(text: str) -> str:
 
 
 def normalize_text_for_match(text: str) -> str:
+    """照合用に記号・空白を除去。完了語は先頭・末尾の両方から取り除く（Discord 側は ** なしのことが多い）。"""
     s = text.strip()
-    s = re.sub(r"(は)?(終わりました|完了しました|終わった|完了|できました|できた|done)$", "", s)
-    s = re.sub(r"[\s　・,，。!！?？:：\-\(\)\[\]【】「」『』/／]+", "", s)
+    # 文末だけ除去だと「完了はぁみいさん…」「タスク完了　はぁみい…」がキーに残り一致しない
+    s = re.sub(
+        r"^(タスク完了|終わりました|完了しました|終わった|完了|できました|できた|done)[\s　:：]*",
+        "",
+        s,
+        flags=re.IGNORECASE,
+    )
+    s = re.sub(
+        r"(は)?(終わりました|完了しました|終わった|完了|できました|できた|done)$",
+        "",
+        s,
+        flags=re.IGNORECASE,
+    )
+    s = re.sub(r"[\s　・,，。!！?？:：\-\(\)\[\]【】「」『』/／*＊]+", "", s)
     return s.lower()
 
 
