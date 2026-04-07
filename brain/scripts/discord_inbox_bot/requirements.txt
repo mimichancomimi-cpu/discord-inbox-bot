@@ -1,2 +1,5 @@
 discord.py>=2.3.0
 python-dotenv>=1.0.0
+# カレンダー自動追加（add_calendar_event.py）用
+google-api-python-client>=2.100.0
+google-auth>=2.23.0

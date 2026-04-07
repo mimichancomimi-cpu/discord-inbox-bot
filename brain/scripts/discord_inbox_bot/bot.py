@@ -722,6 +722,13 @@ async def maybe_add_calendar_event(text: str) -> bool:
     if req is None:
         return False
 
+    log.info(
+        "Calendar: parsed OK summary=%r start=%s end=%s",
+        req["summary"],
+        req["start"],
+        req["end"],
+    )
+
     if not ADD_CALENDAR_SCRIPT.exists():
         log.error("Calendar script not found: %s", ADD_CALENDAR_SCRIPT)
         return False
@@ -754,7 +761,14 @@ async def maybe_add_calendar_event(text: str) -> bool:
 
     result = await loop.run_in_executor(None, _run)
     if result.returncode != 0:
-        log.error("Calendar add failed: %s", (result.stderr or result.stdout).strip())
+        err = (result.stderr or "").strip()
+        out = (result.stdout or "").strip()
+        log.error(
+            "Calendar add failed rc=%s stderr=%s stdout=%s",
+            result.returncode,
+            err or "(empty)",
+            out or "(empty)",
+        )
         return False
 
     log.info("Calendar event created: %s", (result.stdout or "").strip())
@@ -804,13 +818,20 @@ def save_last_message_id_for(channel_id: int, message_id: int) -> None:
 
 
 def get_last_summary_date_for(channel_id: int) -> str | None:
+    """
+    各メモ用チャンネルごとに「その日の朝サマリーを送り済みか」を返す。
+    旧データの last_summary_date は「先頭ルートの受信箱チャンネル」にだけフォールバックする。
+    （全ルートで legacy を見ると、mimi 送信後に かおりん・あんこが誤って「送り済み」になる）
+    """
     state = load_state()
     by = state.get("last_summary_date_by_channel") or {}
     key = str(channel_id)
     if key in by:
         return str(by[key])
     legacy = state.get("last_summary_date")
-    return str(legacy) if legacy else None
+    if legacy and INBOX_ROUTES and channel_id == INBOX_ROUTES[0].channel_id:
+        return str(legacy)
+    return None
 
 
 def set_last_summary_date_for(channel_id: int, date_str: str) -> None:
@@ -818,7 +839,9 @@ def set_last_summary_date_for(channel_id: int, date_str: str) -> None:
     if "last_summary_date_by_channel" not in state:
         state["last_summary_date_by_channel"] = {}
     state["last_summary_date_by_channel"][str(channel_id)] = date_str
-    state["last_summary_date"] = date_str
+    # 単一ルート時代の互換: 先頭ルートだけグローバルにもミラー
+    if INBOX_ROUTES and channel_id == INBOX_ROUTES[0].channel_id:
+        state["last_summary_date"] = date_str
     save_state(state)
 
 
@@ -1218,6 +1241,12 @@ async def run_inbox_catch_up(reason: str) -> None:
 @client.event
 async def on_ready() -> None:
     log.info("Logged in as %s", client.user)
+    log.info(
+        "Calendar auto-add: enabled=%s script_exists=%s path=%s",
+        ENABLE_CALENDAR_AUTO_ADD,
+        ADD_CALENDAR_SCRIPT.is_file(),
+        ADD_CALENDAR_SCRIPT,
+    )
     for route in INBOX_ROUTES:
         channel = await fetch_channel_by_id(route.channel_id)
         if channel is None:
