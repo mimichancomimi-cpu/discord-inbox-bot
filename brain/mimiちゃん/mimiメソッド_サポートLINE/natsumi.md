@@ -20,7 +20,7 @@ Threadsアカウント名：まなつ
 設計ドキュメント：https://docs.google.com/document/d/1-65dQ0teapK4VeIkvJnnjpUWLbp4-QOEO9lMRVWy4EU/edit?tab=t.0
 
 
-[mimiちゃん]
+[相談者]
 こんにちは！
 
 
@@ -28,31 +28,31 @@ Threadsアカウント名：まなつ
 サポートのお願いをしたくて、ご連絡です🙇🏻‍♀️
 
 
-[要確認]
+[相談者]
 現在、恋愛垢でマネタイズを目指しています。
 現在フォロワー34人で、ジャンル認知済みです。
 100人〜200人まで伸ばしてnoteの販売を考えているのですが、フォロワーの伸びが悪い現状です。
 
 
-[要確認]
+[相談者]
 きっとフォローされる理由が無いのだろうと思っていて、バズ狙いや共感狙いの投稿をしていますが、なかなかフォローに繋がりません…
 バズも狙ってできてないです😭
 
 
-[要確認]
+[相談者]
 分析シートを添付しますので、改善点を教えていただけたら嬉しいです。
 
 
-[要確認]
+[相談者]
 よろしくお願いお願いいたします🙇🏻‍♀️
 
 
-[要確認]
+[相談者]
 プロフィール
 https://docs.google.com/document/d/1urCu_Kj3Agms7IozXXDFuL5FxV-scurngkcUw8hYtT0/edit?usp=drivesdk
 
 
-[mimiちゃん]
+[相談者]
 リサーチ
 https://docs.google.com/document/d/1N5SWcm-uN17kdsh1v-_uiq9Tl-OHGIupd0saPW2cJUI/edit?usp=drivesdk
 
@@ -68,7 +68,7 @@ https://docs.google.com/spreadsheets/d/1vYte6iBYlbf2diFLKIxZXr4qjRCN9udjF7EXM2ok
 土台はいいと思います！
 
 
-[相談者]
+[mimiちゃん]
 今パッと見て足りないなと思ったのは、「まなつさんだから言えること」が無いなぁーと思いました。
 
 
@@ -76,26 +76,27 @@ https://docs.google.com/spreadsheets/d/1vYte6iBYlbf2diFLKIxZXr4qjRCN9udjF7EXM2ok
 具体性も少ないですね。
 
 
-[要確認]
+[mimiちゃん]
 今のアカウント設計だと、ちょっと厳しめにいうと「誰でも言える」内容になってしまっています。
 
 
-[要確認]
+[mimiちゃん]
 「ボロボロ恋愛」もどのようにボロボロだったのか？
 「溺愛結婚」もどのように溺愛なのか。
 
 
-[要確認]
+[mimiちゃん]
 この辺をもっと深掘りしてより具体的にまとめてみてほしいです！
 
 
-[要確認]
+[mimiちゃん]
 ここは壁打ちするので、アカウントの背景や人物像、信念や敵なども含めてまとめて送ってください✨
+[相談者]
 ありがとうございます！
 土台がいいとのこと、安心しました☺️
 
 
-[mimiちゃん]
+[相談者]
 確かに今のアカウント設計だと、誰でも言える内容になっているな、、と、アドバイスをいただいて気づきました。
 
 
@@ -104,23 +105,27 @@ https://docs.google.com/spreadsheets/d/1vYte6iBYlbf2diFLKIxZXr4qjRCN9udjF7EXM2ok
 箇条書きで思いつくだけ書き出したので、まとまりがなくなってしまって…すみません💦
 
 
-[mimiちゃん]
+[相談者]
 https://docs.google.com/document/d/1-65dQ0teapK4VeIkvJnnjpUWLbp4-QOEO9lMRVWy4EU/edit?usp=drivesdk
+[mimiちゃん]
 見ましたー！いいですね！！
 特に言うことないです…w
 
 
-[相談者]
+[mimiちゃん]
 このままプロフィールや投稿に反映させていきたいですね🤔
+[相談者]
 ほんとですか…！！
 ありがとうございます！
 
 
-[mimiちゃん]
+[相談者]
 プロフィールや投稿に反映させるのがちょっと難しく感じてしまってました🥲
 リサーチしつつ、頑張ってみます…！
+[mimiちゃん]
 お返事遅くなってすみません！
 またプロフィールや投稿など送ってもらえれば添削しますのでお気軽にご連絡くださいー！
+[相談者]
 とんでもないです！
 お忙しいところ、ありがとうございます🙇🏻‍♀️
 
