@@ -19,10 +19,6 @@ view: speaker_labeled
 ドキュメントリンク：https://docs.google.com/document/d/175GG96rRMwAdz7v5IaAC1jsgCBx-CYoPYQuUjd7atcw/edit?tab=t.0
 
 
-[mimiちゃん]
-【サポート特典のリマインドです🐇】
-
-
 [相談者]
 1ヶ月質問サポート特典は
 1/10までとなっています！
@@ -41,18 +37,8 @@ view: speaker_labeled
 そんな方は、今のうちにぜひ使ってくださいね🐇
 
 
-[mimiちゃん]
-サポートを利用する場合は、このLINEに 「サポート」 と4文字だけ送ってください◎
-
-
 [相談者]
 注意事項が届くので、確認後に質問を送ってもらえたらOKです！
-
-
-[mimiちゃん]
-遠慮せず、気軽に使ってくださいね🤍
-サポート
-【サポート利用の注意事項】
 
 
 [mimiちゃん]
