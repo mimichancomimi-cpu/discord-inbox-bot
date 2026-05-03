@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Threads運用ナレッジ_実践知見集.md",
+                "file": "mimiちゃん/コンテンツ/mimiメソッド　文字起こしデータ.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Threads運用ナレッジ_実践知見集"
+              "title": "mimiメソッド　文字起こしデータ"
             }
           }
         ],
@@ -145,8 +145,7 @@
               "title": "ブックマーク"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -256,6 +255,9 @@
   },
   "active": "c1b11b5c97876d55",
   "lastOpenFiles": [
+    "mimiちゃん/コンテンツ/mimiメソッド　内容.md",
+    "mimiちゃん/コンテンツ/mimiメソッド　文字起こしデータ.md",
+    "docs/Threads運用ナレッジ_実践知見集.md",
     "つきのわハウス/Discordログ/threads/はじめまして🙂‍↕️-1499939710863409162.md",
     "つきのわハウス/Discordログ/threads/はじめまして！みぃママです！-1499711289998708936.md",
     "つきのわハウス/Discordログ/threads/初めまして-1499404060560855232.md",
@@ -279,9 +281,6 @@
     "mimiちゃん/mimiメソッド_サポートLINE/まい.md",
     "mimiちゃん/mimiメソッド_サポートLINE/ほのん.md",
     "mimiちゃん/mimiメソッド_サポートLINE/のぐちよしみ.md",
-    "mimiちゃん/mimiメソッド_サポートLINE/なおみ.md",
-    "mimiちゃん/mimiメソッド_サポートLINE/つぼくらあけみ.md",
-    "mimiちゃん/mimiメソッド_サポートLINE/ちあき(いちごちゃん).md",
     "mimiちゃん/mimiメソッド_サポートLINE",
     "mimiちゃん/mimiメソッド_サポートLINE_人別",
     "mimiちゃん/_write_note_kb.py",
